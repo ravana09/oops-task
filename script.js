@@ -1,32 +1,53 @@
 console.log("working");
 
 class Movie {
-    constructor(title, studio, rating) {
+    constructor(title, studio, pg) {
         this.title = title,
-            this.studio = studio,
-            this.rating = rating || "PG"
-
+        this.studio = studio,
+        this.pg = pg || "no rating";
     }
+
     getPG() {
         console.log(`
         The Name of the Movie ${this.title},
         The Movie is produced by ${this.studio},
-        The Rating of the movie is :${this.rating}
-        
-        `)
+        The Rating of the movie is: ${this.pg}
+        `);
     }
-
 }
 
-let CasinoRoyal = new Movie("Casino Royale", "Eon Productions", "PG­13")
+let CasinoRoyal = new Movie("Casino Royale", "Eon Productions", 13);
 console.log(CasinoRoyal);
-CasinoRoyal.getPG()
+CasinoRoyal.getPG();
 
 //if rating is not given
-
-let newMovie = new Movie("Casino Royale", "Eon Productions");
+let newMovie = new Movie("Casino Royale", "Eon Productions", "no rating");
 console.log(newMovie);
 newMovie.getPG();
+
+const movieArr = [CasinoRoyal, newMovie];
+
+class CheckRating {
+    constructor(movies) {
+        this.movies = movies;
+    }
+
+    getThePG() {
+        const newArray = [];
+        this.movies.forEach(element => {
+            if (element.pg === "no rating") {
+                // Do something if there is no rating
+            } else {
+                newArray.push(element);
+            }
+        });
+        return newArray;
+    }
+}
+
+let newCheck = new CheckRating(movieArr);
+console.log(newCheck.getThePG());
+ 
 
 //write  a person details
 
