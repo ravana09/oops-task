@@ -91,45 +91,60 @@ let orderOne = new UberPrice("salem", 31,10)
 console.log(orderOne.kilometer)
 orderOne.priceDetails()
 
+
+
 //CIRCLE
 
-// class Circle{
-//     constructor(radius,color){
-//         this._radius=radius
-//         this._color=color
+class Circle{
+    constructor(radius,color){
+        this._radius=radius
+        this._color=color
 
-//     }
+    }
 
-//     double(){
-//         this._radius*2
-//     }
+    double(){
+        this._radius*2
+    }
 
-//     get radius(){
-//        return this._radius
-//     }
+    get radius(){
+       return this._radius
+    }
 
-//     get color(){
-//        return this._color
-//     }
+    get color(){
+       return this._color
+    }
     
-//     set color(colour){
-//         if(colour===""){
-//             this._color=colour==="void"
-//         }else{
-//             this._color=colour
-//         }
-//     }
+    set radius(newRadius) {
+        if (newRadius > 0) {
+          this._radius = newRadius;
+        } else {
+          console.error("Radius must be a positive number");
+        }
+      }
 
-    
-// }
+    getCircle(){
+        console.log(this._radius,this._color)
+    };
 
-// let circle =new Circle(1.0,"red")
-// let circle2=new Circle(1.0)
+    calculateArea() {
+        console.log( Math.PI * Math.pow(this._radius, 2));
+      };
 
-// console.log(circle.radius)
-// console.log(circle.color)
-// console.log(circle2.radius)
-// console.log(circle2.color)
+      calculateCircumference() {
+        console.log( 2 * Math.PI * this._radius);
+      };
 
-// circle.double()
+    toString(){
+        console.log( `Circle with radius ${this._radius},and the color is ${this._color}`);
+      }
+}
+
+let circle =new Circle(1.0,"red")
+
+console.log(circle.radius)
+console.log(circle.color)
+circle.getCircle()
+circle.toString()
+circle.calculateCircumference()
+circle.calculateArea()
 
